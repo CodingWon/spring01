@@ -13,5 +13,8 @@
 		values(#{title},#{content},#{writer})
   </insert>
   
+  <select id="getContent" resultType="com.fastcampus.ch2.entity.Board">
+  		select * from myboard where idx = #{idx} 
+  </select>
   
 </mapper>

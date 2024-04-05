@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fastcampus.ch2.entity.Board;
 import com.fastcampus.ch2.mapper.BoardMapper;
@@ -41,4 +42,12 @@ public class BoardController {
 		return "redirect:/boardList.do";
 	}
 	
+	@GetMapping("/boardContent.do")
+	public String boardContent (@RequestParam("idx") int idx, Model model) {
+		
+		Board board = boardMapper.getContent(idx);
+		model.addAttribute("board", board);
+		
+		return "boardContent";
+	}
 }

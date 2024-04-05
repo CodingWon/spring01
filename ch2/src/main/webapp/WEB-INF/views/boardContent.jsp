@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+    <%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,25 +17,31 @@
   <div class="panel panel-default">
     <div class="panel-heading">Board</div>
     <div class="panel-body">
-    <table class="table table-bordered table-hover">
-    	<tr>
-    		<td>번호</td>
-    		<td>제목</td>
-    		<td>작성자</td>
-    		<td>작성일</td>
-    		<td>조회수</td>
-    	</tr>
-		    <c:forEach var="vo" items="${list}">
-		           <tr>
-		            <td>${vo.idx}</td>
-		            <td><a href="/boardContent.do?idx=${vo.idx}">${vo.title}</a></td>
-		            <td>${vo.writer}</td>
-		            <td>${vo.indate}</td>
-		            <td>${vo.count}</td>
-		           </tr>
-	          </c:forEach>
-    </table>
-    <a href="/boardForm.do" class="btn btn-primary btn-sm">글쓰기</a>
+	    	<table class="table">
+	    		<tr>
+	    			<td>제목</td>
+	    			<td>${board.title}</td>
+	    		</tr>
+	    		<tr>
+	    			<td>내용</td>
+	    			<td>${board.content}</td>
+	    		</tr>
+    			<tr>
+	    			<td>작성자</td>
+	    			<td>${board.writer}</td>
+	    		</tr>
+    			<tr>
+	    			<td>작성일</td>
+	    			<td>${board.indate}</td>
+	    		</tr>
+	    		<tr>
+	    			<td colspan="2" align="center">
+	    				<button type="button" class="btn btn-success btn-sm">수정</button>
+	    				<button type="reset" class="btn btn-warning btn-sm">삭제</button>
+	    				<button type="reset" class="btn btn-primary btn-sm">목록</button>
+	    			</td>
+	    		</tr>
+	    	</table>
     </div>
     <div class="panel-footer">Spring 01</div>
   </div>
