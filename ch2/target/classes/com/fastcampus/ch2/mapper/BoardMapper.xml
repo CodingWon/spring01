@@ -8,5 +8,10 @@
   		select * from myboard order by idx desc
   </select>
   
+  <insert id="insert" parameterType="com.fastcampus.ch2.entity.Board">
+  		insert into myboard(title,content,writer)
+		values(#{title},#{content},#{writer})
+  </insert>
+  
   
 </mapper>

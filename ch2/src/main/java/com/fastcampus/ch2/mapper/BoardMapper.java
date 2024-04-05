@@ -9,5 +9,6 @@ import com.fastcampus.ch2.entity.Board;
 @Mapper
 public interface BoardMapper {
 
-	public List<Board> getLists();		
+	public List<Board> getLists();
+	public int insert(Board board);
 }

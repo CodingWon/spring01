@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.fastcampus.ch2.entity.Board;
 import com.fastcampus.ch2.mapper.BoardMapper;
@@ -26,6 +27,18 @@ public class BoardController {
 		list.forEach(board -> System.out.println(board.toString()));
 		
 		return "boardList";
+	}
+	
+	@GetMapping("/boardForm.do")
+	public String boardForm() {
+		return "boardForm";
+	}
+	
+	@PostMapping("/boardInsert.do")
+	public String boardInsert(Board board) {
+		
+		int result = boardMapper.insert(board);
+		return "redirect:/boardList.do";
 	}
 	
 }
