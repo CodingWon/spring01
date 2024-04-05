@@ -1,15 +1,31 @@
 package com.fastcampus.ch2.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.fastcampus.ch2.entity.Board;
+import com.fastcampus.ch2.mapper.BoardMapper;
 
 @Controller
 public class BoardController {
 
-	@GetMapping("/")
-	public String tset() {
+	@Autowired
+	BoardMapper boardMapper;
+	
+	@GetMapping("/boardList.do")
+	public String boardList(Model model) {
 		
-		return "template";
+		List<Board> list = boardMapper.getLists();
+		model.addAttribute("list",list);
+		
+		list.forEach(board -> System.out.println(board.toString()));
+		
+		return "boardList";
 	}
 	
 }

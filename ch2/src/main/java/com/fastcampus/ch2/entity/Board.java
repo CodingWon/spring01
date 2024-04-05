@@ -1,14 +1,20 @@
 package com.fastcampus.ch2.entity;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Data
+@ToString
 public class Board {
-	private int idx; 		// 번호
-	private String title; 	// 제목
-	private String content; // 내용
-	private String writer; 	// 작성자
-	private String indate; 	// 작성일
-	private int count; 		// 조회수
+	private int idx; 		//
+	private String title; 	//
+	private String content; //
+	private String writer; 	//
+	private String indate; 	//
+	private int count; 		//
+	
+	
+	
+	
 	
 }
