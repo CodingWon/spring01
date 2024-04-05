@@ -1,0 +1,22 @@
+package com.fastcampus.ch2.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.fastcampus.ch2.entity.Board;
+
+@Controller
+public class BoardController {
+
+	@GetMapping("/boardList.do")
+	public String boardList() {
+		
+		List<Board> list = new ArrayList<>();
+		
+		return "template";
+	}
+	
+}
