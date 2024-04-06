@@ -44,7 +44,7 @@ public class BoardController {
 	
 	@GetMapping("/boardContent.do")
 	public String boardContent (@RequestParam("idx") int idx, Model model) {
-		
+		boardMapper.updateCount(idx);
 		Board board = boardMapper.getContent(idx);
 		model.addAttribute("board", board);
 		

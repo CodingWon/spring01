@@ -29,4 +29,10 @@
 	where idx = #{idx}
   	
   </update>
+  
+  <update id="updateCount">
+  	update myboard
+  	set count = count +1
+  	where idx = #{idx}
+  </update>
 </mapper>
