@@ -20,6 +20,13 @@
   <delete id="delete">
   	delete from myboard
   	where idx = #{idx}
-  
   </delete>
+  
+  <update id="update" parameterType="com.fastcampus.ch2.entity.Board">
+	update myboard
+	set title = #{title}
+	, content = #{content}
+	where idx = #{idx}
+  	
+  </update>
 </mapper>

@@ -16,23 +16,24 @@
   <div class="panel panel-default">
     <div class="panel-heading">Board</div>
     <div class="panel-body">
-    	<form action="/boardInsert.do" method = "post">
+    	    	<form action="/boardUpdate.do" method = "post">
+    	    	<input type = "hidden" name ="idx" value="${board.idx}" />
 	    	<table class="table">
 	    		<tr>
 	    			<td>제목</td>
-	    			<td><input type="text" name="title" class = "form-control"/></td>
+	    			<td><input type="text" name="title" class = "form-control" value="${board.title}"/></td>
 	    		</tr>
 	    		<tr>
 	    			<td>내용</td>
-	    			<td><textarea rows ="7" class="form-control" name="content"></textarea></td>
+	    			<td><textarea rows ="7" class="form-control" name="content">${board.content}</textarea></td>
 	    		</tr>
     			<tr>
 	    			<td>작성자</td>
-	    			<td><input type="text" name="writer" class = "form-control"/></td>
+	    			<td><input type="text" name="writer" class = "form-control" value="${board.writer}" readonly/></td>
 	    		</tr>
 	    		<tr>
 	    			<td colspan="2" align="center">
-	    				<button type="submit" class="btn btn-success btn-sm">등록</button>
+	    				<button type="submit" class="btn btn-success btn-sm">수정</button>
 	    				<button type="reset" class="btn btn-warning btn-sm">취소</button>
 	    			</td>
 	    		</tr>

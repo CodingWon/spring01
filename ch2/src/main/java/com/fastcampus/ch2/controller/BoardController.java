@@ -1,6 +1,5 @@
 package com.fastcampus.ch2.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,4 +56,19 @@ public class BoardController {
 			boardMapper.delete(idx);
 		return "redirect:/boardList.do";
 	}
+	
+	@GetMapping("/boardUpdateForm.do/{idx}")
+	public String boardUpdateForm (@PathVariable("idx") int idx, Model model) {
+		Board board = boardMapper.getContent(idx);
+		model.addAttribute("board", board);
+		return "boardUpdate";
+	}
+	
+	@PostMapping("/boardUpdate.do")
+	public String boardUpdate(Board vo) {
+		
+		boardMapper.update(vo);
+		return "redirect:/boardList.do";
+	}
+	
 }
